@@ -39,7 +39,7 @@ Auteur
 Démarrage
 =========
 
-Ce guide utilise volontairement `nova-network` au lieu de `quantum` afin de le simplifier. En effet, la mise en place de Quantum complexifie beaucoup le temps de mise en place. Les fonctionnalités avancées de Quantum n'étant pas vraiment utile dans le cas d'une utilisation sur un seul serveur.
+Ce guide utilise volontairement `nova-network` au lieu de `quantum` afin de le simplifier. En effet, la mise en place de Quantum complexifie beaucoup le temps de mise en place. De plus, les fonctionnalités avancées de Quantum ne sont pas vraiment utile lors de l’installation sur un seul serveur.
 
 Configuration Matériel
 ----------------------
@@ -259,7 +259,7 @@ Installation et configuration de Keystone
    chmod +x keystone_basic.sh
    chmod +x keystone_endpoints_basic.sh
 
-* Dans le script keystone_basic.sh, modifier la variable $HOST_IP par votre addresse IP
+* Dans le script keystone_basic.sh, modifier la variable $HOST_IP par votre adresse IP
 * Dans le script keystone_endpoints_basic.sh, modifier les variables $HOST_IP, $EXT_HOST_IP, & $MYSQL_HOST par votre addresse IP et exécuter les scripts.
 
 * **Note: Vérifier bien les modifications car nettoyer Keystone peut être long et douloureux à faire**::
@@ -523,13 +523,13 @@ Installation et configuration de Glance
 
    glance-manage db_sync
 
-* **Note: Vous aurez problablement un avertissement concernant 'useexisting'. C'est normal, pas d'inquiétude.**
+* **Note: Vous aurez probablement un avertissement concernant 'useexisting'. C'est normal, pas d'inquiétude.**
 
 * Relance des service de nouveau afin de prendre en compte les modifications::
 
    service glance-api restart; service glance-registry restart
 
-* Faisons un test de notre installation Glance en installlant une image cirrors cloud du mirroir Launchpad::
+* Faisons un test de notre installation Glance en installant une image cirros cloud du miroir Launchpad::
 
    mkdir images
    cd images
@@ -702,7 +702,7 @@ Installation et configuration de Nova
 
    nova-manage service list
 
-* Vous devriez avoir une chose similaire à ça::
+* Vous devriez avoir un retour similaire à ça::
 
    Binary           Host                                 Zone             Status     State Updated_At
    nova-cert        folsom-1                             nova             enabled    :-)   2012-12-22 18:30:58
@@ -831,7 +831,7 @@ Installation et configuration de Cinder
    |     volume_type     |                 None                 |
    +---------------------+--------------------------------------+
 
-* Vérification que tout est ok avec la commande cinder list .Si le volume a un statut "avaiable", c'est qu'il est disponible::
+* Vérification que tout est ok avec la commande cinder list. Si le volume a un statut "available", c'est que tout est ok::
 
    cinder list
    +--------------------------------------+-----------+--------------+------+-------------+-------------+
@@ -872,7 +872,7 @@ Création d'une VM de test
    nova secgroup-add-rule default tcp 22 22 0.0.0.0/0
    nova secgroup-add-rule default icmp -1 -1 0.0.0.0/0
 
-* Pour créer une VM, il est nécessaire de spécifier une taille de VM et l'image de l'OS, il faut donc récupérer les infos nécessaire::
+* Pour créer une VM, il est nécessaire de spécifier une taille de VM et l'image à utiliser, il faut donc récupérer les infos nécessaire::
 
    nova flavor-list
    +----+-----------+-----------+------+-----------+------+-------+-------------+-----------+-------------+
@@ -892,7 +892,7 @@ Création d'une VM de test
    | 0a2f7eb1-c6c7-4159-abce-500c19a26cc5 | GlanceTest | ACTIVE |        |
    +--------------------------------------+------------+--------+--------+
 
-* Repérer l'ID souhaité pour la taille de la VM et l'ID de l'image que vous souhaitez
+* Repérer l'ID souhaité pour la taille de la VM ainsi que pour l'image
 
 * Lancement de la première VM de test::
 
@@ -912,7 +912,7 @@ Le guide est présent sur GitHub.
 D'autres guides verront le jour prochainement. La liste des guides en préparation sont :
 
 * Guide d'installation d'OpenStack Folsom sur plusieurs machines
-* Guide d'installation d'OpenStack Folsom sur plusieurs dedibox
+* Guide d'utilisation de Keystone, Glance, Nova
 * Guide de la haute disponibilité d'OpenStack Folsom
 * Guide de l'utilisation de Quantum
 
