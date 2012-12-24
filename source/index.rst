@@ -95,7 +95,7 @@ Installation et Configuration de MySQL et RabbitMQ
 * Configuration de MySQL pour accepter les requêtes depuis toutes les interfaces::
 
     sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf
-    servier mysql restart
+    service mysql restart
 
 * Installation de RabbitMQ::
 
