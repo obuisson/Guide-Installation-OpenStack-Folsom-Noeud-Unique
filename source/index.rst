@@ -179,7 +179,8 @@ Installation et configuration de KVM
 
 * Vous devriez avoir une réponse similaire à ça::
 
-   KVM acceleratiopn can be used
+   KVM acceleration can be used
+
 
 * Nous pouvons installer KVM et le configurer::
 
@@ -671,6 +672,7 @@ Installation et configuration de Nova
    network_manager=nova.network.manager.FlatDHCPManager
    force_dhcp_release=True
    dhcpbridge_flagfile=/etc/nova/nova.conf
+   dhcpbridge=/usr/bin/nova-dhcpbridge
    firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
    # Change my_ip to match each host
    my_ip=10.32.14.232
