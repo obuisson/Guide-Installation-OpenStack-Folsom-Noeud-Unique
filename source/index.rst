@@ -900,9 +900,9 @@ Création d'une VM de test
 
    nova boot --flavor 1 --image 0a2f7eb1-c6c7-4159-abce-500c19a26cc5 --security-groups default --key-name mykey ma_vm_de_test
 
-* Au bout de quelques minutes, vous pouvez vérifier que votre VM est disponible (le statut doit être ACTIVE) via la commande nova-list::
+* Au bout de quelques minutes, vous pouvez vérifier que votre VM est disponible (le statut doit être ACTIVE) via la commande nova list::
 
-   nova-list
+   nova list
 
   
 Notes
