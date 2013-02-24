@@ -239,39 +239,39 @@ Installation et configuration de Keystone
 
     mysql -u root -p
     CREATE DATABASE keystone;
-    GRANT ALL ON keystone.* TO 'keystoneUser'@'%' IDENTIFIED BY 'keystonePass';
+    GRANT ALL ON keystone.* TO 'keystone'@'%' IDENTIFIED BY 'password';
     quit;
 
 * Modification des attributs de connexion dans /etc/keystone/keystone.conf pour notre base::
 
     vi /etc/keystone/keystone.conf
     #Modifier le champ connection comme suit
-    connection = mysql://keystoneUser:keystonePass@10.32.14.232/keystone
+    connection = mysql://keystone:password@10.32.14.232/keystone
 
 * Relance du service et synchronisation de la base::
 
     service keystone restart
     keystone-manage db_sync
 
-* Utilisation du script de mseknibilel::
+* Utilisation du script de EmilienM::
 
-   wget https://raw.github.com/nimbula/OpenStack-Folsom-Install-guide/VLAN/2NICs/Keystone_Scripts/keystone_basic.sh
-   wget https://raw.github.com/nimbula/OpenStack-Folsom-Install-guide/VLAN/2NICs/Keystone_Scripts/keystone_endpoints_basic.sh
-   chmod +x keystone_basic.sh
-   chmod +x keystone_endpoints_basic.sh
+   wget https://raw.github.com/EmilienM/openstack-folsom-guide/master/scripts/keystone-data.sh
+   wget https://raw.github.com/EmilienM/openstack-folsom-guide/master/scripts/keystone-endpoints.sh
+   chmod +x keystone-data.sh
+   chmod +x keystone-endpoints.sh
 
-* Dans le script keystone_basic.sh, modifier la variable $HOST_IP par votre adresse IP
-* Dans le script keystone_endpoints_basic.sh, modifier les variables $HOST_IP, $EXT_HOST_IP, & $MYSQL_HOST par votre addresse IP et exécuter les scripts.
+* Dans le script keystone-data.sh, modifier la variable $HOST_IP par votre adresse IP
+* Dans le script keystone-endpoints.sh, modifier les variables $MASTER, $MYSQL_USER, $MYSQL_PASSWORD & $MYSQL_HOST par votre addresse IP et exécuter les scripts.
 
 * **Note: Vérifier bien les modifications car nettoyer Keystone peut être long et douloureux à faire**::
 
-   vi keystone_basic.sh
-   vi keystone_endpoints_basic.sh
-   ./keystone_basic.sh
-   ./keystone_endpoints_basic.sh
+   vi keystone-data.sh
+   vi keystone-endpoints.sh
+   ./keystone-data.sh
+   ./keystone-endpoints.sh
 
 
-* Le script keystone_basic.sh n'affiche rien, mais le script keystone_endpoints_basic.sh doit vous renvoyer quelque chose comme ça::
+* Le script keystone-data.sh n'affiche rien, mais le script keystone-endpoints.sh doit vous renvoyer quelque chose comme ça::
 
    +-------------+----------------------------------+
    |   Property  |              Value               |
@@ -391,7 +391,7 @@ Installation et configuration de Keystone
    export OS_NO_CACHE=1
    export OS_TENANT_NAME=admin
    export OS_USERNAME=admin
-   export OS_PASSWORD=admin_pass
+   export OS_PASSWORD=password
    export OS_AUTH_URL="http://10.32.14.232:5000/v2.0/"
 
 * Charger le fichier::
